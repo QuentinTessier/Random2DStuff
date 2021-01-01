@@ -1,6 +1,5 @@
 #include <math.h>
-
-static const int  SEED = 1985;
+#include "ValueField.h"
 
 static const unsigned char  HASH[] = {
     208,34,231,213,32,248,233,56,161,78,24,140,71,48,140,254,245,255,247,247,40,
@@ -19,7 +18,7 @@ static const unsigned char  HASH[] = {
 
 static int noise2(int x, int y)
 {
-    int  yindex = (y + SEED) % 256;
+    int  yindex = (y + PerlinSeed) % 256;
     if (yindex < 0)
         yindex += 256;
     int  xindex = (HASH[yindex] + x) % 256;
